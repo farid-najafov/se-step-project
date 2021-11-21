@@ -13,6 +13,9 @@ spring:
 
   datasource:
     url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    initialization-mode: always
 
   h2:
     console:
@@ -20,11 +23,6 @@ spring:
       path: /h2
       settings:
         web-allow-others: true
-  sql:
-    init:
-      username: sa
-      mode: always
-      password:
 
 management:
   endpoints:

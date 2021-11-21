@@ -27,7 +27,7 @@ public class UserService {
 
     public UserResp edit(UUID userId, UserReq request) {
         try {
-            var userEntity = userRepo.getById(userId);
+            var userEntity = userRepo.findById(userId).orElseThrow();
             userEntity.setName(request.getName());
             userEntity.setPhone(request.getPhone());
             var saved = userRepo.save(userEntity);
