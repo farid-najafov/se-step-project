@@ -5,24 +5,30 @@ spring:
   application:
     name: phonebook
 
-  jpa:
-    generate-ddl: true
-    hibernate:
-      ddl-auto: create
-    show-sql: false
-
   datasource:
-    url: jdbc:h2:mem:testdb
-    username: sa
-    password:
+    url: jdbc:mysql://${host_ip}:3306/phonebook_db
+    username: root
+    password: my-secret-pw
     initialization-mode: always
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
-  h2:
-    console:
-      enabled: true
-      path: /h2
-      settings:
-        web-allow-others: true
+  jpa:
+    properties:
+      hibernate:
+        default_schema: phonebook_db
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/changelog-master.yml
+    drop-first: false
+    default-schema: phonebook_db
+    database-change-log-table: PHONEBOOK_DBCHANGELOG
+    database-change-log-lock-table: PHONEBOOK_DBCHANGELOGLOCK
 
 management:
   endpoints:

@@ -1,5 +1,5 @@
 HELP.md
-.gradle
+phonebook/.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+/terraform/db/.terraform/
+/terraform/db/.terraform.lock.*
+/terraform/db/terraform.tfstate
+/terraform/db/terraform.tfstate.backup
+/.idea/
