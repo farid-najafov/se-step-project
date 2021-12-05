@@ -6,8 +6,8 @@ resource "aws_lb" "public_alb" {
   security_groups = [aws_security_group.be.id]
 
   subnets = [
-    "subnet-09f4880d072f09a92",
-    "subnet-0a7788d1472394ddc"
+    "subnet-08686e25fa5e37171",
+    "subnet-0aff2a4e1c715ea05"
   ]
 
   enable_deletion_protection = false
@@ -49,8 +49,12 @@ resource "aws_lb_listener_rule" "phonebook_app" {
 }
 
 resource "aws_lb_target_group" "tg-ph" {
-  vpc_id = "vpc-03d43e2e542b53e2e"
+  vpc_id = "vpc-09e5b1c4bedb68d20"
   name     = "tg-app"
   port     = 80
   protocol = "HTTP"
+
+  health_check {
+    path = "/status"
+  }
 }

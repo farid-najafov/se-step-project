@@ -16,7 +16,7 @@ resource "aws_security_group" "db" {
   description = "MYSQL/Aurora access"
 
   tags = {
-    Name = "db-sg"
+    Name = "db-ph"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_security_group" "ssh" {
   description = "Allows access to 22 port from Internet"
 
   tags = {
-    Name = "ssh-sg"
+    Name = "ssh-ph"
   }
 }
 

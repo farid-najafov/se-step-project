@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 yum update
+yum install git -y
 yum install docker -y
+
 usermod -aG docker ec2-user
 systemctl enable docker
 systemctl start docker
-yum install git -y
 
 git clone https://github.com/farid-najafov/se-step-project.git
 

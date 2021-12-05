@@ -23,5 +23,5 @@ resource "aws_launch_template" "app_node" {
     }
   }
 
-  user_data_base64 = filebase64("user_data.sh")
+  user_data = filebase64("user_data.sh")
 }
