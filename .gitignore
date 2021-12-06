@@ -35,8 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
-/terraform/db/.terraform/
-/terraform/db/.terraform.lock.*
-/terraform/db/terraform.tfstate
-/terraform/db/terraform.tfstate.backup
+**.terraform/
+**/.terraform.**
+**/terraform.**
 /.idea/

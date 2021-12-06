@@ -13,17 +13,6 @@ resource "aws_security_group" "db" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  description = "MYSQL/Aurora access"
-
-  tags = {
-    Name = "db-ph"
-  }
-}
-
-resource "aws_security_group" "ssh" {
-
-  name = "tf-ssh"
-
   ingress {
     from_port   = 22
     protocol    = "TCP"
@@ -38,10 +27,10 @@ resource "aws_security_group" "ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  description = "Allows access to 22 port from Internet"
+  description = "Security rules for mysql db"
 
   tags = {
-    Name = "ssh-ph"
+    Name = "db-ph"
   }
 }
 
@@ -54,7 +43,7 @@ resource "aws_instance" "db_mysql" {
     Name = "mysql db"
   }
 
-  vpc_security_group_ids = [aws_security_group.db.id, aws_security_group.ssh.id, "sg-03f0afc9972bef360"]
+  vpc_security_group_ids = [aws_security_group.db.id, "sg-03f0afc9972bef360"]
 
   user_data_base64 = filebase64("user_data.sh")
 }

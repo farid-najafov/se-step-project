@@ -6,7 +6,7 @@ spring:
     name: phonebook
 
   datasource:
-    url: jdbc:mysql://18.212.23.180:3306/phonebook_db
+    url: jdbc:mysql://172.31.80.8:3306/phonebook_db
     username: root
     password: my-secret-pw
     initialization-mode: always
